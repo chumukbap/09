@@ -1,22 +1,25 @@
 
 #include <stdio.h>
-#include <stdlib.h>
 #define SIZE 5
 
 int main(void)
 {
     int i;
-    int grade[SIZE];
-    int score[SIZE];
+    int a[SIZE] = {1, 2, 3, 4, 5};
+    int b[SIZE] = {1, 2, 3, 4, 5};
+    int ag_same = 1;
 
     for (i = 0; i < SIZE; i++)
-        grade[i] = rand() % 100;
+    {
+        if (a[i] != b[i])
+        {
+            printf("Arrays are different. index = %d\n", i);
+            ag_same = 0;
+        }
+    }
 
-    for (i = 0; i < SIZE; i++)
-        score[i] = grade[i];
-
-    for (i = 0; i < SIZE; i++)
-        printf("score[%d] = %d\n", i, score[i]);
+    if (ag_same == 1)
+        printf("Arrays are the same.\n");
 
     return 0;
 }
